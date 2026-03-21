@@ -5,23 +5,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Electricity WebApp</title>
-    <base href="/" id="dynamic-base">
-    <script>
-        // Dynamically set base path for GitHub Pages deployment
-        (function () {
-            var base = document.getElementById('dynamic-base');
-            var path = window.location.pathname.includes('/ElectricityWebApp')
-                ? '/ElectricityWebApp/'
-                : '/';
-            base.setAttribute('href', path);
-        })();
-    </script>
+    <base href="/ElectricityWebApp/" />
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/app.css" />
     <link rel="icon" type="image/png" href="favicon.png" />
-    <link href="CompanyApp.Mining.styles.css" rel="stylesheet" />
+    <link href="ElectricityWebApp.styles.css" rel="stylesheet" />
     <link href="manifest.webmanifest" rel="manifest" />
-    <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png" />
     <link rel="apple-touch-icon" sizes="192x192" href="icon-192.png" />
     <link href="_content/Radzen.Blazor/css/material-base.css" rel="stylesheet">
 </head>
@@ -49,7 +38,7 @@
             const params = new URLSearchParams(window.location.search);
             const path = params.get('path');
             if (path) {
-                window.history.replaceState(null, '', '/SmallMinersWebApp' + decodeURIComponent(path));
+                window.history.replaceState(null, '', '/ElectricityWebApp' + decodeURIComponent(path));
             }
         })();
     </script>
