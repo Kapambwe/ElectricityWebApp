@@ -5,14 +5,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Electricity WebApp</title>
-    <base href="/ElectricityWebApp/" />
+    <script>
+        // Set base href before any resources load
+        document.write('<base href="' + (window.location.pathname.startsWith('/ElectricityWebApp') ? '/ElectricityWebApp/' : '/') + '" />');
+    </script>
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="_content/Radzen.Blazor/css/material-base.css" />
     <link rel="stylesheet" href="css/app.css" />
     <link rel="icon" type="image/png" href="favicon.png" />
     <link href="ElectricityWebApp.styles.css" rel="stylesheet" />
-    <link href="manifest.webmanifest" rel="manifest" />
-    <link rel="apple-touch-icon" sizes="192x192" href="icon-192.png" />
-    <link href="_content/Radzen.Blazor/css/material-base.css" rel="stylesheet">
 </head>
 
 <body>
@@ -31,14 +32,14 @@
     </div>
     <script src="_framework/blazor.webassembly.js"></script>
     <script src="_content/Radzen.Blazor/Radzen.Blazor.js"></script>
-    <script>navigator.serviceWorker.register('service-worker.js');</script>
     <script>
         // If redirected from 404.html, restore path
         (function () {
             const params = new URLSearchParams(window.location.search);
             const path = params.get('path');
             if (path) {
-                window.history.replaceState(null, '', '/ElectricityWebApp' + decodeURIComponent(path));
+                var base = document.querySelector('base').getAttribute('href').replace(/\/$/, '');
+                window.history.replaceState(null, '', base + decodeURIComponent(path));
             }
         })();
     </script>
